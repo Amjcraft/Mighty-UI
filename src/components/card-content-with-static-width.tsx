@@ -2,9 +2,9 @@
 
 import * as React from "react";
 
-import { useStaticWidth } from "@workspace/ui/hooks/use-static-width";
-import { withStaticWidth } from "@workspace/ui/lib/with-static-width";
-import { cn } from "@workspace/ui/lib/utils";
+import { useStaticWidth } from "../hooks/use-static-width";
+import { withStaticWidth } from "../lib/with-static-width";
+import { cn } from "../lib/utils";
 
 type CardContentRenderProps = {
   staticWidth: number;

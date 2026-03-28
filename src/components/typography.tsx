@@ -1,7 +1,6 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "../lib/utils";
 
 type TypographyProps = {
   className?: string;
