@@ -1,0 +1,114 @@
+# Mighty UI
+
+> React component library. Radix UI primitives + Tailwind CSS v4 + CVA variants. Accessible, typed, token-based.
+
+## Install & Import
+
+```tsx
+import { Button, Card, Input } from 'mighty-ui'
+import 'mighty-ui/globals.css'  // required CSS tokens + Tailwind theme
+```
+
+## Core Rules
+
+1. Import from `mighty-ui` — never recreate components that exist
+2. Use CSS token classes only — no hardcoded hex/px/oklch values
+3. Use `cn()` from `mighty-ui` for className merging
+4. Use CVA for any new component variants
+5. Use `asChild` prop for polymorphic rendering
+
+## Design Tokens (globals.css)
+
+All tokens are CSS custom properties. Tailwind maps them via `@theme inline`.
+
+Colors: `--background`, `--foreground`, `--primary`, `--primary-foreground`, `--secondary`, `--secondary-foreground`, `--muted`, `--muted-foreground`, `--accent`, `--accent-foreground`, `--destructive`, `--card`, `--popover`, `--border`, `--input`, `--ring`
+
+Radius: `--radius` (0.625rem base) → `rounded-sm`, `rounded-md`, `rounded-lg`, `rounded-xl`
+
+Dark mode: `.dark` class on a parent element toggles all token values.
+
+Sidebar tokens: `--sidebar`, `--sidebar-foreground`, `--sidebar-primary`, `--sidebar-accent`, `--sidebar-border`, `--sidebar-ring`
+
+## Components
+
+46 components. Full API: docs/components.md
+
+### Atoms
+- `Button` — variants: default/destructive/outline/secondary/ghost/link; sizes: default/sm/lg/icon
+- `Badge` — variants: default/secondary/destructive/outline/ghost/link; accepts `asChild`
+- `Input` — standard HTML input, styled with token classes
+- `Textarea` — standard HTML textarea
+- `Label` — accessible form label
+- `Checkbox` — Radix checkbox primitive
+- `Switch` — Radix switch primitive
+- `Toggle` — Radix toggle primitive; variants: default/outline; sizes: default/sm/lg
+- `ToggleGroup` / `ToggleGroupItem` — multi-toggle group
+- `Separator` — horizontal/vertical divider
+- `Skeleton` — loading placeholder
+- `Spinner` — loading spinner
+- `Avatar` / `AvatarImage` / `AvatarFallback` — Radix avatar
+
+### Form
+- `Field` — form field wrapper; orientation: vertical/horizontal/responsive
+- `FieldLabel` — label for field
+- `FieldDescription` — helper text
+- `FieldError` — error message; accepts `errors` array
+- `FieldContent` — content wrapper
+- `FieldGroup` — groups multiple fields
+- `FieldSet` / `FieldLegend` — fieldset with legend
+- `FieldSeparator` — divider between field groups
+- `FieldTitle` — non-label field title
+
+### Layout / Content
+- `Card` / `CardHeader` / `CardTitle` / `CardDescription` / `CardAction` / `CardContent` / `CardFooter`
+- `Alert` / `AlertTitle` / `AlertDescription`
+- `Typography` — variant: default/h1/h2/h3/h4/lead/small/muted/link
+- `Breadcrumb` / `BreadcrumbList` / `BreadcrumbItem` / `BreadcrumbLink` / `BreadcrumbPage` / `BreadcrumbSeparator` / `BreadcrumbEllipsis`
+- `Pagination` / `PaginationContent` / `PaginationItem` / `PaginationLink` / `PaginationPrevious` / `PaginationNext` / `PaginationEllipsis`
+- `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`
+- `Table` / `TableHeader` / `TableBody` / `TableFooter` / `TableRow` / `TableHead` / `TableCell` / `TableCaption`
+- `ScrollArea` / `ScrollBar`
+- `Resizable` / `ResizablePanel` / `ResizablePanelGroup` / `ResizableHandle`
+- `Item` — list item component
+- `Empty` / `EmptyHeader` / `EmptyTitle` / `EmptyDescription` / `EmptyContent` / `EmptyMedia`
+
+### Overlays / Menus
+- `Dialog` / `DialogTrigger` / `DialogContent` / `DialogHeader` / `DialogTitle` / `DialogDescription` / `DialogFooter` / `DialogClose`
+- `AlertDialog` / `AlertDialogTrigger` / `AlertDialogContent` / `AlertDialogHeader` / `AlertDialogTitle` / `AlertDialogDescription` / `AlertDialogFooter` / `AlertDialogAction` / `AlertDialogCancel`
+- `Sheet` / `SheetTrigger` / `SheetContent` / `SheetHeader` / `SheetTitle` / `SheetDescription` / `SheetFooter` / `SheetClose`
+- `Drawer` / `DrawerTrigger` / `DrawerContent` / `DrawerHeader` / `DrawerTitle` / `DrawerDescription` / `DrawerFooter` / `DrawerClose`
+- `DropdownMenu` / `DropdownMenuTrigger` / `DropdownMenuContent` / `DropdownMenuItem` / `DropdownMenuCheckboxItem` / `DropdownMenuRadioItem` / `DropdownMenuLabel` / `DropdownMenuSeparator` / `DropdownMenuShortcut` / `DropdownMenuGroup` / `DropdownMenuSub` / `DropdownMenuSubContent` / `DropdownMenuSubTrigger` / `DropdownMenuRadioGroup`
+- `ContextMenu` — same sub-component pattern as DropdownMenu
+- `Menubar` / `MenubarMenu` / `MenubarTrigger` / `MenubarContent` / `MenubarItem` / `MenubarSeparator` / `MenubarLabel` / `MenubarCheckboxItem` / `MenubarRadioGroup` / `MenubarRadioItem` / `MenubarSub` / `MenubarSubContent` / `MenubarSubTrigger` / `MenubarShortcut`
+- `NavigationMenu` / `NavigationMenuList` / `NavigationMenuItem` / `NavigationMenuTrigger` / `NavigationMenuContent` / `NavigationMenuLink` / `NavigationMenuIndicator` / `NavigationMenuViewport`
+- `Popover` / `PopoverTrigger` / `PopoverContent` / `PopoverAnchor`
+- `HoverCard` / `HoverCardTrigger` / `HoverCardContent`
+- `Tooltip` / `TooltipTrigger` / `TooltipContent` / `TooltipProvider`
+- `Command` / `CommandDialog` / `CommandInput` / `CommandList` / `CommandEmpty` / `CommandGroup` / `CommandItem` / `CommandShortcut` / `CommandSeparator`
+- `Combobox` — searchable select built on Command
+- `Select` / `SelectTrigger` / `SelectContent` / `SelectItem` / `SelectLabel` / `SelectSeparator` / `SelectGroup` / `SelectValue` / `SelectScrollUpButton` / `SelectScrollDownButton`
+- `Collapsible` / `CollapsibleTrigger` / `CollapsibleContent`
+
+### Input Compositions
+- `InputGroup` / `InputGroupItem` — group inputs with prefix/suffix elements
+- `ButtonGroup` — group buttons together
+
+### Navigation / Layout
+- `Sidebar` / `SidebarProvider` / `SidebarTrigger` / `SidebarRail` / `SidebarInset` / `SidebarHeader` / `SidebarContent` / `SidebarGroup` / `SidebarGroupLabel` / `SidebarGroupContent` / `SidebarGroupAction` / `SidebarMenu` / `SidebarMenuItem` / `SidebarMenuButton` / `SidebarMenuAction` / `SidebarMenuBadge` / `SidebarMenuSkeleton` / `SidebarMenuSub` / `SidebarMenuSubButton` / `SidebarMenuSubItem` / `SidebarFooter` / `SidebarSeparator`
+
+### Feedback
+- `Sonner` — toast notifications (wraps sonner)
+
+### Utilities (lib)
+- `cn(...classes)` — clsx + tailwind-merge
+- `withStaticWidth(Component)` — HOC for static-width layouts
+
+### Hooks
+- `useMobile()` — returns boolean, true when viewport ≤ 768px
+- `useStaticWidth()` — returns ref + width for measuring DOM elements
+
+## Detailed Docs
+
+- Foundations (tokens, colors, radius): docs/foundations.md
+- Component APIs: docs/components.md
+- Composition patterns: docs/patterns.md

@@ -10,10 +10,10 @@
     "cssVariables": true
   },
   "aliases": {
-    "components": "mighty-ui/components",
-    "utils": "mighty-ui/lib/utils",
-    "hooks": "mighty-ui/hooks",
-    "lib": "mighty-ui/lib",
-    "ui": "mighty-ui/components"
+    "@components": "mighty-ui/components",
+    "@utils": "mighty-ui/lib/utils",
+    "@hooks": "mighty-ui/hooks",
+    "@lib": "mighty-ui/lib",
+    "@ui": "mighty-ui/components"
   }
 }

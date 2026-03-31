@@ -19,7 +19,13 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
-      "mighty-ui/*": ["./src/*"]
+      "mighty-ui/*": ["./src/*"],
+      "@components/ui/*": ["./src/components/*"],
+      "@components/*": ["./src/*"],
+      "@ui/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@utils": ["./src/lib/utils"]
     },
     "skipLibCheck": true
   },
